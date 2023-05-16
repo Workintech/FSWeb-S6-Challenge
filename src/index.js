@@ -1,11 +1,15 @@
 // This is for the fake API. Do not delete!
 import React from "react";
-import ReactDOM from "react-dom";
-import "./index.css";
+import { createRoot } from "react-dom/client";
+import { worker } from "./mocks/browser";
+
 import App from "./App";
+
+import "./index.css";
 import "./App.css";
 
-import { worker } from "./mocks/browser";
 worker.start();
 
-ReactDOM.render(<App />, document.getElementById("root"));
+const container = document.getElementById("root");
+const root = createRoot(container)
+root.render(<App />);
